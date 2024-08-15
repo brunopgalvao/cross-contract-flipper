@@ -66,6 +66,22 @@ mod cross_contract_flipper {
                 .invoke();
         }
 
+        /// Calls the `flip` method of another other contract dynamically
+        /// using the call builder API and specifying the account ID of the other contract
+        /// https://docs.rs/ink_env/5.0.0/ink_env/call/struct.CallBuilder.html
+        #[ink(message)]
+        pub fn dynamically_flip(&mut self, other_contract_account_id: AccountId) {
+            build_call::<DefaultEnvironment>()
+                .call_v1(other_contract_account_id)
+                .gas_limit(0)
+                .transferred_value(0)
+                .exec_input(
+                    ExecutionInput::new(Selector::new(ink::selector_bytes!("flip")))
+                )
+                .returns::<()>()
+                .invoke();
+        }
+
         /// Calls `flip` method of the other contract
         /// without specifying the weight and storage limits
         #[ink(message)]
