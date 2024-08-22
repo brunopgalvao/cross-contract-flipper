@@ -82,7 +82,6 @@ mod cross_contract_flipper {
         /// Calls the `flip` method of another contract dynamically
         /// using the call builder API and specifying the account ID of the other contract
         /// https://docs.rs/ink_env/5.0.0/ink_env/call/struct.CallBuilder.html
-        /// Try without contract dependency
         #[ink(message)]
         pub fn dynamically_flip(&mut self, other_contract_account_id: AccountId) {
             build_call::<DefaultEnvironment>()
