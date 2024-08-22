@@ -27,5 +27,5 @@ pop build
 // input the other-contract code_hash as the parameter
 pop up contract -args 0x35fe6bd568fe247d08f87b860e412df6cdb5b60279243aebe4f5d6651ee2fecf
 // input the cross-contract-flipper contract's onchain account id
-pop call contract --contract 5FZ7j1GyJTRtdD6FKXwBpUwBcV7sjNuSjrsbfEMXVwtd9TMZ --message flip_using_builder --execute
+pop call contract --contract 5FZ7j1GyJTRtdD6FKXwBpUwBcV7sjNuSjrsbfEMXVwtd9TMZ --message build_call_flip_1 --execute
 ```

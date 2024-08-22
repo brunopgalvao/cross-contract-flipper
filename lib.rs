@@ -67,7 +67,7 @@ mod cross_contract_flipper {
         /// using the call builder API
         /// https://docs.rs/ink_env/5.0.0/ink_env/call/struct.CallBuilder.html
         #[ink(message)]
-        pub fn flip_using_builder(&mut self) {
+        pub fn build_call_flip_1(&mut self) {
             build_call::<DefaultEnvironment>()
                 .call(self.get_other_contract_account_id())
                 // Amount of funds that are transferred to the other contract with this call.
@@ -83,7 +83,7 @@ mod cross_contract_flipper {
         /// using the call builder API and specifying the account ID of the other contract
         /// https://docs.rs/ink_env/5.0.0/ink_env/call/struct.CallBuilder.html
         #[ink(message)]
-        pub fn dynamically_flip(&mut self, other_contract_account_id: AccountId) {
+        pub fn build_call_flip_2(&mut self, other_contract_account_id: AccountId) {
             build_call::<DefaultEnvironment>()
                 .call(other_contract_account_id)
                 .transferred_value(0)
@@ -97,28 +97,28 @@ mod cross_contract_flipper {
         /// Calls `flip` method of the other contract
         /// without specifying the weight and storage limits
         #[ink(message)]
-        pub fn flip(&mut self) {
+        pub fn call_flip(&mut self) {
             self.other_contract.flip();
         }
 
         /// Calls `set` method of the other contract
         /// without specifying the weight and storage limits
         #[ink(message)]
-        pub fn set(&mut self) {
+        pub fn call_set(&mut self) {
             self.other_contract.set(true);
         }
 
         /// Calls `get` method of the other contract
         /// without specifying the weight and storage limits
         #[ink(message)]
-        pub fn get(&mut self) -> bool {
+        pub fn call_get(&mut self) -> bool {
             self.other_contract.get()
         }
 
         /// Calls the `flip` method of the other contract
         /// with the specified weight and storage limits
         #[ink(message)]
-        pub fn flip_with_limits(
+        pub fn call_flip_with_limits(
             &mut self,
             ref_time_limit: u64,
             proof_size_limit: u64,
@@ -136,7 +136,7 @@ mod cross_contract_flipper {
         /// Calls the `get` method of the other contract
         /// with the specified weight and storage limits
         #[ink(message)]
-        pub fn get_with_limits(
+        pub fn call_get_with_limits(
             &mut self,
             ref_time_limit: u64,
             proof_size_limit: u64,
