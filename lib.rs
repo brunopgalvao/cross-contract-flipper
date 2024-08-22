@@ -1,3 +1,14 @@
+// If `std` feature is disabled, we are building for Wasm target
+// and we need to use `no_std` and `no_main` attributes
+// to compile the contract as a Wasm binary.
+// If `std` feature is enabled, we are building for native target
+// and we don't need these attributes.
+//
+// `no_std` attribute disables the standard library.
+// When `no_std` is enabled, the `core` and `alloc` libraries are available.
+// The `ink` crate provides necessary functionality in place of the standard library.
+// `no_main` attribute disables the default entry point for the binary.
+// We define our own entry point using the `#[ink::contract]` attribute.
 #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
 /// Docs on utilities to call or instantiate contracts on the chain:
