@@ -67,7 +67,7 @@ mod cross_contract_flipper {
         /// using the call builder API
         /// https://docs.rs/ink_env/5.0.0/ink_env/call/struct.CallBuilder.html
         #[ink(message)]
-        pub fn flip_usig_builder(&mut self) {
+        pub fn flip_using_builder(&mut self) {
             build_call::<DefaultEnvironment>()
                 .call(self.get_other_contract_account_id())
                 // Amount of funds that are transferred to the other contract with this call.
