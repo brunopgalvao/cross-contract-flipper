@@ -1,7 +1,6 @@
 #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
 pub use self::other_contract::{
-    OtherContract,
     OtherContractRef,
 };
 
