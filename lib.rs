@@ -2,7 +2,8 @@
 // and we need to use `no_std` and `no_main` attributes
 // to compile the contract as a Wasm binary.
 // If `std` feature is enabled, we are building for native target
-// and we don't need these attributes.
+// and we don't need these attributes. 
+// ink! builds in `std` mode when running tests.
 //
 // `no_std` attribute disables the standard library.
 // When `no_std` is enabled, the `core` and `alloc` libraries are available.
@@ -177,6 +178,8 @@ mod cross_contract_flipper {
         #[ink(message)]
         pub fn delegate_flip(&mut self) {
             // Bonus Exercise: Delegate call to the other contract
+            // Submit a PR to this repo when completed
+            // Include steps to test the delegate call, even better would be e2e tests ;)
             todo!()
         }
     }
