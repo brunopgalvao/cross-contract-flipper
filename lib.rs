@@ -67,7 +67,7 @@ mod cross_contract_flipper {
 
         // Delegate calls `flip` method of the other contract
         #[ink(message)]
-        pub fn inc_delegate(&mut self) {
+        pub fn flip_delegate(&mut self) {
             let selector = ink::selector_bytes!("flip");
             let _ = build_call::<DefaultEnvironment>()
                 .delegate(self.delegate_to())
